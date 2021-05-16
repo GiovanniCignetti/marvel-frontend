@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import SearchAndPagination from "../components/SearchAndPagination";
 
-const Comics = () => {
+const Comics = ({ userToken, favoritesComics, switchFavorites }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -11,16 +11,15 @@ const Comics = () => {
   const [nbPages, setNbPages] = useState();
   const [limit, setLimit] = useState(100);
 
-  let url = `https://marvel-backend-giovanni.herokuapp.com/comics?title=${search}&skip=${
-    (page - 1) * limit
-  }&limit=${limit}`;
-
   useEffect(() => {
     const fetchData = async () => {
+      // console.log(url);
+      let url = `https://marvel-backend-giovanni.herokuapp.com/comics?title=${search}&skip=${
+        (page - 1) * limit
+      }&limit=${limit}`;
+
       try {
-        console.log(url);
         const response = await axios.get(url);
-        // console.log(response.data.results);
         setNbPages(Math.ceil(response.data.count / response.data.limit));
         setData(response.data);
         setIsLoading(false);
@@ -52,10 +51,15 @@ const Comics = () => {
           data.results.map((comic, index) => {
             return (
               <Card
-                key={comic._id ? comic._id : index}
+                userToken={userToken}
+                key={comic._id}
                 title={comic.title}
                 urlImg={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
                 description={comic.description}
+                typeCard="comics"
+                idCard={comic._id}
+                switchFavorites={switchFavorites}
+                favoritesComics={favoritesComics}
               />
             );
           })}

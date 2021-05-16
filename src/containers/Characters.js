@@ -1,12 +1,9 @@
 import axios from "axios";
-
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import SearchAndPagination from "../components/SearchAndPagination";
 
-import { Link } from "react-router-dom";
-
-const Characters = () => {
+const Characters = ({ userToken, favoritesCharacters, switchFavorites }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -22,11 +19,7 @@ const Characters = () => {
       }&limit=${limit}`;
 
       try {
-        const response = await axios.get(
-          // `http://localhost:3001/characters`
-          url
-        );
-        // console.log(response.data);
+        const response = await axios.get(url);
         setNbPages(Math.ceil(response.data.count / response.data.limit));
         setData(response.data);
         setIsLoading(false);
@@ -52,19 +45,21 @@ const Characters = () => {
         count={data.count}
       />
       <div className="cards-container">
-        {data.results.length > 0 &&
+        {data &&
+          data.results.length > 0 &&
           data.results.map((character, index) => {
             return (
-              <Link
-                to={`/comics/${character._id}`}
-                key={character._id ? character._id : index}
-              >
-                <Card
-                  title={character.name}
-                  urlImg={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  description={character.description}
-                />
-              </Link>
+              <Card
+                userToken={userToken}
+                key={character._id}
+                title={character.name}
+                urlImg={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                description={character.description}
+                typeCard="characters"
+                idCard={character._id}
+                switchFavorites={switchFavorites}
+                favoritesCharacters={favoritesCharacters}
+              />
             );
           })}
       </div>
