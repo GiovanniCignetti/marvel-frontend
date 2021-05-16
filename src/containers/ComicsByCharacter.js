@@ -32,11 +32,6 @@ const ComicsByCharacter = ({ userToken, favoritesComics, switchFavorites }) => {
   ) : (
     <div className="container">
       <div>
-        <h2>
-          title={data.name}
-          urlImg={`${data.thumbnail.path}.${data.thumbnail.extension}`}
-          description={null}
-        </h2>
         <h2>Liste des comics de {data.name}</h2>
       </div>
       <div className="cards-container">
