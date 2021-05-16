@@ -52,7 +52,6 @@ const Card = ({
 
   return (
     <div className="card">
-      <span>{idCard}</span>
       <span>{title}</span>
       {typeCard === "characters" ? (
         <Link to={`/comics/${idCard}`} key={idCard}>

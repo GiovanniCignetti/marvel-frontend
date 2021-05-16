@@ -11,7 +11,7 @@ const Favorites = ({
   return !userToken ? (
     <Redirect to="/login" />
   ) : (
-    <div>
+    <div className="container">
       <h2>Liste des favoris</h2>
       <h3>Personnages</h3>
       <div className="cards-container">

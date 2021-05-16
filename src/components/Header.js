@@ -7,10 +7,16 @@ const Header = ({ setUser, userToken, userName }) => {
       <Link to="/">
         <img className="logo" src={logo} alt="logo" />
       </Link>
-      <Link to="/">personnages</Link>
-      <Link to="/comics">comics</Link>
-      <Link to="/favorites">favoris</Link>
-      <div className="btns-left">
+      <Link className="menu" to="/">
+        PERSONNAGES
+      </Link>
+      <Link className="menu" to="/comics">
+        COMICS
+      </Link>
+      <Link className="menu" to="/favorites">
+        FAVORIS
+      </Link>
+      <div>
         {userToken ? (
           <>
             <span>{`Bonjour ${userName}`}</span>
@@ -23,7 +29,7 @@ const Header = ({ setUser, userToken, userName }) => {
         ) : (
           <>
             <Link to="/signup">
-              <button className="btn1">S'inscrire</button>
+              <button>S'inscrire</button>
             </Link>
             <Link to="/login">
               <button>Se connecter</button>

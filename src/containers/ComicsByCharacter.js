@@ -30,7 +30,7 @@ const ComicsByCharacter = ({ userToken, favoritesComics, switchFavorites }) => {
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (
-    <>
+    <div className="container">
       <div>
         <h2>
           title={data.name}
@@ -60,7 +60,7 @@ const ComicsByCharacter = ({ userToken, favoritesComics, switchFavorites }) => {
             );
           })}
       </div>
-    </>
+    </div>
   );
 };
 

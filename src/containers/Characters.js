@@ -33,7 +33,7 @@ const Characters = ({ userToken, favoritesCharacters, switchFavorites }) => {
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (
-    <>
+    <div className="container">
       {/* composant Recherche et pagination */}
       <SearchAndPagination
         setSearch={setSearch}
@@ -44,6 +44,7 @@ const Characters = ({ userToken, favoritesCharacters, switchFavorites }) => {
         limit={limit}
         count={data.count}
       />
+
       <div className="cards-container">
         {data &&
           data.results.length > 0 &&
@@ -63,7 +64,7 @@ const Characters = ({ userToken, favoritesCharacters, switchFavorites }) => {
             );
           })}
       </div>
-    </>
+    </div>
   );
 };
 

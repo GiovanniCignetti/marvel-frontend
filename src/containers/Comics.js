@@ -33,7 +33,7 @@ const Comics = ({ userToken, favoritesComics, switchFavorites }) => {
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (
-    <>
+    <div className="container">
       {/* composant Recherche et pagination */}
       <SearchAndPagination
         setSearch={setSearch}
@@ -64,7 +64,7 @@ const Comics = ({ userToken, favoritesComics, switchFavorites }) => {
             );
           })}
       </div>
-    </>
+    </div>
   );
 };
 
