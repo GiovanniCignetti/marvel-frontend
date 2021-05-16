@@ -27,8 +27,8 @@ const Favorites = ({
                 description={character.description}
                 typeCard="characters"
                 idCard={character.id_api}
-                isFavorites={true}
                 switchFavorites={switchFavorites}
+                favoritesCharacters={favoritesCharacters}
               />
             );
           })}
@@ -47,8 +47,8 @@ const Favorites = ({
                 description={comic.description}
                 typeCard="comics"
                 idCard={comic.id_api}
-                isFavorites={true}
                 switchFavorites={switchFavorites}
+                favoritesComics={favoritesComics}
               />
             );
           })}
