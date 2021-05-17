@@ -42,10 +42,12 @@ function App() {
       // console.log(1);
       // chargement states favoris
       loadFavorites(tokenOrNull);
+      // Cookies.set("favoritesCharacters", favoritesCharacters, { expires: 1 });
     } else {
       // Raz States favoris si pas de token user
       setFavoritesCharacters();
       setFavoritesComics();
+      // Cookies.remove("favoritesCharacters");
     }
   };
 

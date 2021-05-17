@@ -1,5 +1,4 @@
 import { Redirect } from "react-router-dom";
-import axios from "axios";
 import Card from "../components/Card";
 
 const Favorites = ({

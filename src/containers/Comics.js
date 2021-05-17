@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
+import Loader from "../components/Loader";
 import SearchAndPagination from "../components/SearchAndPagination";
 
 const Comics = ({ userToken, favoritesComics, switchFavorites }) => {
@@ -31,7 +32,7 @@ const Comics = ({ userToken, favoritesComics, switchFavorites }) => {
   }, [search, page, limit]);
 
   return isLoading ? (
-    <span>En cours de chargement... </span>
+    <Loader />
   ) : (
     <div className="container">
       {/* composant Recherche et pagination */}

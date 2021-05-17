@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
+import Loader from "../components/Loader";
 
 const ComicsByCharacter = ({ userToken, favoritesComics, switchFavorites }) => {
   const [data, setData] = useState();
@@ -28,7 +29,7 @@ const ComicsByCharacter = ({ userToken, favoritesComics, switchFavorites }) => {
   // console.log(data);
 
   return isLoading ? (
-    <span>En cours de chargement... </span>
+    <Loader />
   ) : (
     <div className="container">
       <div>
