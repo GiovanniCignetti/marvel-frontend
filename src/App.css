@@ -59,8 +59,9 @@ button {
   border: none;
   font-size: 17px;
   font-weight: 700;
-  height: 30px;
-  width: 200px !important;
+  /* height: 30px; */
+  /* line-height: 10px; */
+  width: 200px;
   border-radius: 5px;
   font-size: 14px;
   border: none;
@@ -75,7 +76,7 @@ button {
   margin: 0 auto;
 }
 
-.log-form {
+.content {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -104,7 +105,7 @@ button {
 .card {
   margin: 80px 0;
   height: 400px;
-  width: 300px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

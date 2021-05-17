@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import SearchAndPagination from "../components/SearchAndPagination";
+import gifLoader from "../assets/img/bolt.gif";
 
 const Characters = ({ userToken, favoritesCharacters, switchFavorites }) => {
   const [data, setData] = useState();
@@ -31,7 +32,9 @@ const Characters = ({ userToken, favoritesCharacters, switchFavorites }) => {
   }, [search, page, limit]);
 
   return isLoading ? (
-    <span>En cours de chargement... </span>
+    <div className="content">
+      <img src={gifLoader} alt="gifLoader" />
+    </div>
   ) : (
     <div className="container">
       {/* composant Recherche et pagination */}

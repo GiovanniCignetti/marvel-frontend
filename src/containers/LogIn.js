@@ -37,7 +37,7 @@ const LogIn = ({ setUser }) => {
   };
 
   return (
-    <div className="log-form">
+    <div className="content">
       <form className="form" onSubmit={handleSubmit}>
         <input
           type="email"
@@ -50,7 +50,7 @@ const LogIn = ({ setUser }) => {
           onChange={(event) => setPassword(event.target.value)}
         />
         <div>
-          <button className="log-form-btn" type="submit">
+          <button className="content-btn" type="submit">
             Se connecter
           </button>
         </div>
